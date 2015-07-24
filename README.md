@@ -103,3 +103,13 @@ sudo reboot
 ```
 
 Now change your network cables to the configuration above, done!
+
+# Tweaking
+
+You can change the domain name for the Raspberry Pi subnetwork in `pillar/config.sls`.
+
+The Raspberry Pi subnet is `192.168.188.0/24` as specified in `salt/dnsmasq/dnsmasq.conf` and `salt/networking/interfaces`. You have to change those files if you want a different subnetwork.
+
+Any other aspect can be tweaked directly in SaltStack files, which should be pretty self-explainatory.
+
+If you make an improvement don't forget to open a pull request!
