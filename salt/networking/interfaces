@@ -1,0 +1,12 @@
+auto lo
+iface lo inet loopback
+
+# Raspberry Pi's builtin port, connected to the internal network
+auto eth0
+iface eth0 inet static
+  address 192.168.188.1
+  netmask 255.255.255.0
+
+# USB adapter port, connected to the Internet
+auto eth1
+iface eth1 inet dhcp 
