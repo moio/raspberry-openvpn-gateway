@@ -65,6 +65,14 @@ Then replace the first two lines of `salt/openvpn/etc_openvpn/login.conf` with y
 
 Finally add lines to `salt/openvpn/etc_openvpn/dnsmasq.conf` to configure any domains to be resolved by DNS servers from inside the VPN.
 
+## SSH configuration
+
+Copy the public SSH key you want to use to access the Raspberry Pi in `salt/sshd/authorized_keys` (password authentication is disabled in the next step). From the repo directory you can use:
+
+```
+cp ~/.ssh/id_rsa.pub salt/sshd/authorized_keys
+```
+
 ## SaltStack installation
 
 This project uses SaltStack to configure the Raspberry Pi.
