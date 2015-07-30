@@ -45,7 +45,7 @@ unzip *.zip
 dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/mmcblk0 # replace with your SD device if different
 ```
 
-## OpenVPN file configuration
+## OpenVPN configuration
 
 You need to have a proper OpenVPN configuration file, say `VPN.conf`, to use this project (for a starting point, see the [official HOWTO](https://openvpn.net/index.php/open-source/documentation/howto.html#config). It is recommended to test it separately.
 
