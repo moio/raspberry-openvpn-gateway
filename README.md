@@ -72,9 +72,7 @@ This project uses SaltStack to configure the Raspberry Pi.
 To install it, insert the SD card in your Raspberry Pi and connect it to a network where you can access it, then run:
 
 ```
-PI_ADDRESS=raspberry.local # replace with your Raspberry Pi IP address/hostname if different
-
-ssh pi@$PI_ADDRESS # password is raspberry
+ssh pi@raspberrypi.local # password is raspberry
 
 sudo su
 raspi-config
@@ -90,13 +88,13 @@ chown -R pi /srv
 Now copy configuration files from this project onto the Raspberry Pi:
 
 ```
-scp -r . pi@$PI_ADDRESS://srv
+scp -r . pi@raspberrypi.local://srv
 ```
 
 Run Salt to configure it and finally reboot:
 
 ```
-ssh pi@$PI_ADDRESS # password is raspberry
+ssh pi@raspberrypi.local # password is raspberry
 
 sudo salt-call --local state.highstate
 sudo reboot
