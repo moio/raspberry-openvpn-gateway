@@ -1,3 +1,12 @@
+generate rsa key:
+  cmd.run:
+    - name: |
+        rm /etc/ssh/ssh_host_rsa_key &&
+        ssh-keygen -t rsa -b 4096 -N '' -f /etc/ssh/ssh_host_rsa_key
+    - unless: openssl rsa -text -noout -in /etc/ssh/ssh_host_rsa_key | grep "4096 bit"
+    - require:
+      - pkg: sshd
+
 authorized_keys:
   file.managed:
     - source: salt://sshd/authorized_keys
@@ -16,11 +25,14 @@ sshd_config:
     - mode: 644
     - require:
       - pkg: sshd
+      - cmd: generate rsa key
       - file: authorized_keys
 
 sshd:
   pkg.installed:
-    - name: openssh-server
+    - pkgs:
+      - openssh-server
+      - openssl
   service.running:
     - name: ssh
     - enable: True
