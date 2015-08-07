@@ -15,11 +15,11 @@ openvpn:
     - template: jinja
     - user: root
     - group: root
-    - file_mode: 644
+    - file_mode: 600
 
 /etc/openvpn/up.sh:
   file.managed:
     - source: salt://openvpn/up.sh
     - user: root
     - group: root
-    - mode: 755
+    - mode: 700
