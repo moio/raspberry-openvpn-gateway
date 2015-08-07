@@ -1,4 +1,4 @@
 SUSE
 SUSE.conf
-dnsmasq.conf
-login.conf
+dnsmasq.settings
+login.settings

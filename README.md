@@ -51,19 +51,19 @@ You need to have a proper OpenVPN configuration file, say `VPN.conf`, to use thi
 
 Copy that file and any other file it refers to in `salt/openvpn/etc_openvpn`. The configuration script will copy them to `/etc/openvpn`, so any file reference sould point there (eg. `ca`, `cert`, `key`, etc.).
 
-Add to your configuration file the following lines:
+Ensure your configuration file contains the following lines:
 
 ```
-# reads username and password from the first two lines of login.conf
-auth-user-pass login.conf
+# reads username and password from the first two lines of login.settings
+auth-user-pass login.settings
 
 # runs when the connection is up
 up /etc/openvpn/up.sh
 ```
 
-Then replace the first two lines of `salt/openvpn/etc_openvpn/login.conf` with your credentials, if any.
+Then replace the first two lines of `salt/openvpn/etc_openvpn/login.settings` with your credentials, if any.
 
-Finally add lines to `salt/openvpn/etc_openvpn/dnsmasq.conf` to configure any domains to be resolved by DNS servers from inside the VPN.
+Finally add lines to `salt/openvpn/etc_openvpn/dnsmasq.settings` to configure any domains to be resolved by DNS servers from inside the VPN.
 
 ## SSH configuration
 
@@ -118,7 +118,7 @@ SSH is configured to accept connections on port 22. Note that security settings 
 
 You can change the domain name for the Raspberry Pi subnetwork in `pillar/config.sls`.
 
-The Raspberry Pi subnet is `192.168.188.0/24` as specified in `salt/dnsmasq/dnsmasq.conf` and `salt/networking/interfaces`. You have to change those files if you want a different subnetwork.
+The Raspberry Pi subnet is `192.168.188.0/24` as specified in `salt/dnsmasq/dnsmasq.settings` and `salt/networking/interfaces`. You have to change those files if you want a different subnetwork.
 
 Any other aspect can be tweaked directly in SaltStack files, which should be pretty self-explainatory.
 
