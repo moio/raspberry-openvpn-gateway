@@ -33,7 +33,7 @@ Raspberry Pi acts as router, very basic firewall, DHCP server, DNS cache and VPN
  - [Raspberry Pi case](https://www.raspberrypi.org/products/raspberry-pi-case/);
  - USB power adapter (5v, 2000mA, 10W) with micro USB plug;
  - microSD card (4GB or more);
- - [TRENDNET TU3-ETG USB3 Gigabit Ethernet adapter](https://www.trendnet.com/products/proddetail.asp?prod=315_TU3-ETG);
+ - [TRENDNET TU3-ETG USB3 Gigabit Ethernet adapter](https://www.trendnet.com/products/proddetail.asp?prod=315_TU3-ETG) (eth1 in the diagram above);
 
 ## Raspberry Pi base image preparation
 
@@ -77,7 +77,7 @@ cp ~/.ssh/id_rsa.pub salt/sshd/authorized_keys
 
 This project uses SaltStack to configure the Raspberry Pi.
 
-To install it, insert the SD card in your Raspberry Pi and connect it to a network where you can access it, then run:
+To install it, insert the SD card in your Raspberry Pi and connect it to a network where you can access it. Don't connect the USB Ethernet interface yet, and run the following commands:
 
 ```
 ssh pi@raspberrypi.local # password is raspberry
