@@ -42,7 +42,7 @@ Follow the [official instructions](https://www.raspberrypi.org/documentation/ins
 ```
 wget http://downloads.raspberrypi.org/raspbian_latest
 unzip *.zip
-dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/mmcblk0 # replace with your SD device if different
+sudo dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/mmcblk0 # replace with your SD device if different
 ```
 
 ## OpenVPN configuration
@@ -82,15 +82,14 @@ To install it, insert the SD card in your Raspberry Pi and connect it to a netwo
 ```
 ssh pi@raspberrypi.local # password is raspberry
 
-sudo su
-raspi-config
+sudo raspi-config
 # expand filesystem
 # change password
 
-echo deb http://debian.saltstack.com/debian wheezy-saltstack main >> /etc/apt/sources.list
-apt-get update
-apt-get -y install salt-minion
-chown -R pi /srv
+echo deb http://debian.saltstack.com/debian wheezy-saltstack main | sudo tee --append /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get -y install salt-minion
+sudo chown -R pi /srv
 ```
 
 Now copy configuration files from this project onto the Raspberry Pi:
