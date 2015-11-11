@@ -40,8 +40,8 @@ Raspberry Pi acts as router, very basic firewall, DHCP server, DNS cache and VPN
 Follow the [official instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) to install Raspbian. On a Linux host, you can also use the following quicker ones:
 
 ```
-wget http://downloads.raspberrypi.org/raspbian_latest
-unzip *.zip
+wget https://downloads.raspberrypi.org/raspbian/images/raspbian-2015-05-07/2015-05-05-raspbian-wheezy.zip
+unzip 2015-05-05-raspbian-wheezy.zip
 sudo dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/mmcblk0 # replace with your SD device if different
 ```
 
