@@ -82,6 +82,7 @@ To install it, insert the SD card in your Raspberry Pi and connect it to a netwo
 ```
 ssh pi@raspberrypi.local # password is raspberry
 
+sudo rpi-update
 sudo raspi-config
 # expand filesystem
 # change password
