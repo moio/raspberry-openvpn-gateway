@@ -88,6 +88,8 @@ sudo raspi-config
 # change password
 
 echo deb http://debian.saltstack.com/debian wheezy-saltstack main | sudo tee --append /etc/apt/sources.list
+gpg --keyserver pgpkeys.mit.edu --recv-key  B09E40B0F2AE6AB9
+gpg -a --export B09E40B0F2AE6AB9 | sudo apt-key add -
 sudo apt-get update
 sudo apt-get -y install salt-minion
 sudo chown -R pi /srv
