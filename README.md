@@ -40,9 +40,9 @@ Raspberry Pi acts as router, very basic firewall, DHCP server, DNS cache and VPN
 Follow the [official instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) to install Raspbian. On a Linux host, you can also use the following quicker ones:
 
 ```
-wget https://downloads.raspberrypi.org/raspbian/images/raspbian-2015-05-07/2015-05-05-raspbian-wheezy.zip
-unzip 2015-05-05-raspbian-wheezy.zip
-sudo dd bs=4M if=2015-05-05-raspbian-wheezy.img of=/dev/mmcblk0 # replace with your SD device if different
+wget https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2015-11-24/2015-11-21-raspbian-jessie-lite.zip
+unzip *.zip
+sudo dd bs=4M if=`ls *.img` of=/dev/mmcblk0 # replace with your SD device if different
 ```
 
 ## OpenVPN configuration
@@ -85,9 +85,11 @@ ssh pi@raspberrypi.local # password is raspberry
 sudo raspi-config
 # expand filesystem
 # change password
+# finish and reboot. Connect again, then:
+sudo apt-get install rpi-update
 sudo rpi-update
 
-echo deb http://debian.saltstack.com/debian wheezy-saltstack main | sudo tee --append /etc/apt/sources.list
+echo deb http://debian.saltstack.com/debian jessie-saltstack main | sudo tee --append /etc/apt/sources.list
 gpg --keyserver pgpkeys.mit.edu --recv-key  B09E40B0F2AE6AB9
 gpg -a --export B09E40B0F2AE6AB9 | sudo apt-key add -
 sudo apt-get update
@@ -104,10 +106,10 @@ scp -r . pi@raspberrypi.local://srv
 Run Salt to configure it and finally reboot:
 
 ```
-ssh pi@raspberrypi.local # password is raspberry
+ssh pi@raspberrypi.local
 
 sudo salt-call --local state.highstate
-sudo reboot
+sudo shutdown -h now
 ```
 
 Now change your network cables to the configuration above, done!
