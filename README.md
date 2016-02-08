@@ -83,9 +83,9 @@ To install it, insert the SD card in your Raspberry Pi and connect it to a netwo
 ssh pi@raspberrypi.local # password is raspberry
 
 sudo raspi-config
-sudo rpi-update
 # expand filesystem
 # change password
+sudo rpi-update
 
 echo deb http://debian.saltstack.com/debian wheezy-saltstack main | sudo tee --append /etc/apt/sources.list
 gpg --keyserver pgpkeys.mit.edu --recv-key  B09E40B0F2AE6AB9
