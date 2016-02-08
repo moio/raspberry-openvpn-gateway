@@ -73,9 +73,9 @@ Copy the public SSH key you want to use to access the Raspberry Pi in `salt/sshd
 cp ~/.ssh/id_rsa.pub salt/sshd/authorized_keys
 ```
 
-## SaltStack installation
+## Salt installation
 
-This project uses SaltStack to configure the Raspberry Pi.
+This project uses Salt to configure the Raspberry Pi.
 
 To install it, insert the SD card in your Raspberry Pi and connect it to a network where you can access it. Don't connect the USB Ethernet interface yet, and run the following commands:
 
