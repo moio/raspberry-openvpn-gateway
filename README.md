@@ -85,9 +85,7 @@ ssh pi@raspberrypi.local # password is raspberry
 sudo raspi-config
 # expand filesystem
 # change password
-# finish and reboot. Connect again, then:
-sudo apt-get install rpi-update
-sudo rpi-update
+# finish and reboot
 
 echo deb http://debian.saltstack.com/debian jessie-saltstack main | sudo tee --append /etc/apt/sources.list
 gpg --keyserver pgpkeys.mit.edu --recv-key  B09E40B0F2AE6AB9
