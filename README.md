@@ -11,7 +11,7 @@ Network topology follows:
  |              |      |                                                                         X            X
  +--------------+      |                                                                       XX              XX XX XX
                        |                                                                       X                        XX
- +--------------+      |     +----------------+    eth0    +----------------+   eth1       XXXXX                         XX         +-----------------+
+ +--------------+      |     +----------------+    eth0    +----------------+   eth1 (USB) XXXXX                         XX         +-----------------+
  |              |      +---->|                |            |                |            XXX                               X        |                 |
  |    host 2    +----------->|     switch     +----------->+  Raspberry Pi  +----------> X              Internet          XX ------>+  VPN endpoint   |
  |              |      +---->|                |            |                |            X                               XX         |                 |
@@ -40,16 +40,21 @@ Raspberry Pi acts as router, very basic firewall, DHCP server, DNS cache and VPN
 Follow the [official instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) to install Raspbian. On a Linux host, you can also use the following quicker ones:
 
 ```
-wget https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2015-11-24/2015-11-21-raspbian-jessie-lite.zip
+wget http://vx2-downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2016-05-31/2016-05-27-raspbian-jessie-lite.zip
 unzip *.zip
-sudo dd bs=4M if=`ls *.img` of=/dev/mmcblk0 # replace with your SD device if different
+sudo dd bs=4M if=`ls *.img` of=/dev/mmcblk0 # replace with your SD device (check journalctl)
 ```
 
-## OpenVPN configuration
+## Boot your Raspberry PI
+
+Connect your Raspberry PI (just Ethernet and power, you do not need a screen).
+
+## Providing configuration
+### Prepare OpenVPN configuration
 
 You need to have a proper OpenVPN configuration file, say `VPN.conf`, to use this project (for a starting point, see the [official HOWTO](https://openvpn.net/index.php/open-source/documentation/howto.html#config). It is recommended to test it separately.
 
-Copy that file and any other file it refers to in `salt/openvpn/etc_openvpn`. The configuration script will copy them to `/etc/openvpn`, so any file reference sould point there (eg. `ca`, `cert`, `key`, etc.).
+Copy that file and any other file it refers to in `salt/openvpn/etc_openvpn`. The configuration script will copy them to `/etc/openvpn`, so any file reference should point there (eg. `ca`, `cert`, `key`, etc.).
 
 Ensure your configuration file contains the following lines:
 
@@ -65,7 +70,7 @@ Then replace the first two lines of `salt/openvpn/etc_openvpn/login.settings` wi
 
 Finally add lines to `salt/openvpn/etc_openvpn/dnsmasq.settings` to configure any domains to be resolved by DNS servers from inside the VPN.
 
-## SSH configuration
+### SSH configuration
 
 Copy the public SSH key you want to use to access the Raspberry Pi in `salt/sshd/authorized_keys` (password authentication is disabled in the next step). From the repo directory you can use:
 
@@ -73,7 +78,7 @@ Copy the public SSH key you want to use to access the Raspberry Pi in `salt/sshd
 cp ~/.ssh/id_rsa.pub salt/sshd/authorized_keys
 ```
 
-## Salt installation
+### Salt installation
 
 This project uses Salt to configure the Raspberry Pi.
 
