@@ -7,6 +7,12 @@ generate rsa key:
     - require:
       - pkg: sshd
 
+purge moduli:
+  cmd.run:
+    - name: |
+        awk '$5 > 2000' /etc/ssh/moduli > /tmp/moduli
+        test -s /tmp/moduli && mv /tmp/moduli /etc/ssh/moduli
+        
 authorized_keys:
   file.managed:
     - source: salt://sshd/authorized_keys
