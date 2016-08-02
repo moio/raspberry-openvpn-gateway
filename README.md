@@ -90,6 +90,8 @@ ssh pi@raspberrypi.local # password is raspberry
 sudo raspi-config
 # expand filesystem
 # change password
+# i18n options -> change locale (personal preference: en-US.UTF-8)
+# i18n options -> change timezone
 # finish and reboot
 
 echo deb http://debian.saltstack.com/debian jessie-saltstack main | sudo tee --append /etc/apt/sources.list
