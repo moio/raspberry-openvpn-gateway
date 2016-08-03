@@ -125,9 +125,20 @@ SSH is configured to accept connections on port 22. Note that security settings 
 
 # Tweaking
 
+## Misc
+
 You can change the domain name for the Raspberry Pi subnetwork in `pillar/config.sls`.
 
 The Raspberry Pi subnet is `192.168.188.0/24` as specified in `salt/dnsmasq/dnsmasq.settings` and `salt/networking/interfaces`. You have to change those files if you want a different subnetwork.
+
+You may also want to specify additional search domains in addition to Raspberry Pi subnetwork.
+In order to do that, you must edit `/etc/dnsmasq.conf` and set the option:
+
+```
+dhcp-option=option:domain-search,michelebologna.net,godzilla.apple.com
+```
+
+restart dnsmasq and test if your DHCP client support this option.
 
 Any other aspect can be tweaked directly in SaltStack files, which should be pretty self-explainatory.
 
