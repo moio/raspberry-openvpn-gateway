@@ -132,3 +132,12 @@ The Raspberry Pi subnet is `192.168.188.0/24` as specified in `salt/dnsmasq/dnsm
 Any other aspect can be tweaked directly in SaltStack files, which should be pretty self-explainatory.
 
 If you make an improvement don't forget to open a pull request!
+
+# Additional applications
+
+Useful Raspbian packages that you may want to use (if you're feeling brave):
+
+* IRC: [weechat](https://www.weechat.org/files/doc/stable/weechat_user.en.html) + relay
+* wake on lan client (via [etherwake](http://linux.die.net/man/8/ether-wake))
+* [uptimed](https://github.com/rpodgorny/uptimed) (just to brag about your uptime)
+* ... add yours!
