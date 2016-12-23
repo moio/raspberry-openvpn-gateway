@@ -15,6 +15,7 @@ openvpn:
     - template: jinja
     - user: root
     - group: root
+    - exclude_pat: E@(dnsmasq.settings.default)|(login.settings.default)
     - file_mode: 600
 
 /etc/openvpn/up.sh:
