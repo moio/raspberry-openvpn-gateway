@@ -1,0 +1,3 @@
+pillar/config.sls
+salt/openvpn/etc_openvpn/*
+!salt/openvpn/etc_openvpn/*.default
