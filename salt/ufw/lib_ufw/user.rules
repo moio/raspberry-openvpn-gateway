@@ -29,7 +29,7 @@
 ### tuple ### allow tcp 22 0.0.0.0/0 any 0.0.0.0/0 in_tun0
 -A ufw-user-input -i tun0 -p tcp --dport 22 -j ACCEPT
 
-### tuple ### allow tcp 64378 0.0.0.0/0 any 0.0.0.0/0 in_tun0
+### tuple ### allow udp 64378 0.0.0.0/0 any 0.0.0.0/0 in_tun0
 -A ufw-before-input -i tun0 -p udp --sport 64738 -j ACCEPT
 
 ### END RULES ###
