@@ -1,3 +1,3 @@
 local_domain: moio
-hostname: rpi
+hostname: raspberrypi
 {%- set dnsdomainname = "michelebologna.net" %}
