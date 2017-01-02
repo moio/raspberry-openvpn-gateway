@@ -72,7 +72,7 @@ auth-user-pass login.settings
 up /etc/openvpn/up.sh
 ```
 
-Make a copy of `salt/openvpn/etc_openvpn/login.settings.default` by saving as `salt/openvpn/etc_openvpn/login.settings`. This file must contain your credentials, if any.
+Copy `salt/openvpn/etc_openvpn/login.settings.default` to `salt/openvpn/etc_openvpn/login.settings` and edit it. This file must contain your VPN credentials, if any are needed, for the VPN to be started automatically.
 
 Finally, make a copy of `salt/openvpn/etc_openvpn/dnsmasq.settings.default` by saving as `salt/openvpn/etc_openvpn/dnsmasq.settings` to configure any VPN-specific dnsmasq options (eg. search domains to be resolved inside the VPN, domain names to be resolved by DNS servers from inside the VPN, etc.).
 
