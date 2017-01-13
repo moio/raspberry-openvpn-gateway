@@ -105,7 +105,7 @@ sudo chown -R pi /srv
 Now copy configuration files from this project onto the Raspberry Pi:
 
 ```
-rsync -e ssh -avz --progress --delete --exclude=.git . pi@raspberrypi.local://srv
+scp -r . pi@raspberrypi.local://srv
 ```
 
 Run Salt to configure it and finally reboot:
