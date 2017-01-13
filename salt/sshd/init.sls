@@ -2,8 +2,8 @@ generate rsa key:
   cmd.run:
     - name: |
         cd /etc/ssh && rm ssh_host_*key*
-        ssh-keygen -t ed25519 -f ssh_host_ed25519_key < /dev/null
-        ssh-keygen -t rsa -b 4096 -f ssh_host_rsa_key < /dev/null
+        ssh-keygen -t ed25519 -N "" -f ssh_host_ed25519_key
+        ssh-keygen -t rsa -N "" -b 4096 -f ssh_host_rsa_key
     - unless: openssl rsa -text -noout -in /etc/ssh/ssh_host_rsa_key | grep "4096 bit" && test -f /etc/ssh/ssh_host_ed25519_key
     - require:
       - pkg: sshd
