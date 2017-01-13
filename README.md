@@ -45,6 +45,18 @@ unzip *.zip
 sudo dd bs=4M if=`ls *.img` of=/dev/mmcblk0 # replace with your SD device (check journalctl)
 ```
 
+### Note
+
+As of the November 2016 release, Raspbian has the [SSH server disabled by default](https://www.raspberrypi.org/documentation/remote-access/ssh/).
+In order to enable ssh :
+
+```
+# mkdir -p /run/media/mbologna/boot
+# mount -t vfat /dev/mmcblk0p1 /run/media/mbologna/boot # check partition number on your setup
+# touch /run/media/mbologna/boot/ssh
+# sync && umount /run/media/mbologna/boot/
+```
+
 ## Boot your Raspberry PI
 
 Connect your Raspberry PI (just Ethernet and power, you do not need a screen).
