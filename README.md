@@ -37,10 +37,10 @@ Raspberry Pi acts as router, very basic firewall, DHCP server, DNS cache and VPN
 
 ## Raspberry Pi base image preparation
 
-Follow the [official instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) to install Raspbian. On a Linux host, you can also use the following quicker ones:
+Follow the [official instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) to install Raspbian Lite. On a Linux host, you can also use the following quicker ones:
 
 ```
-wget https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2015-11-24/2015-11-21-raspbian-jessie-lite.zip
+wget http://director.downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2017-04-10/2017-04-10-raspbian-jessie-lite.zip
 unzip *.zip
 sudo dd bs=4M if=`ls *.img` of=/dev/mmcblk0 # replace with your SD device (check journalctl)
 
@@ -94,10 +94,10 @@ To install it, insert the SD card in your Raspberry Pi and connect it to a netwo
 ssh pi@raspberrypi.local # password is raspberry
 
 sudo raspi-config
-# expand filesystem
 # change password
-# i18n options -> change locale (personal preference: en-US.UTF-8)
-# i18n options -> change timezone
+# advanced options -> expand filesystem
+# localisation options -> change locale (personal preference: en-US.UTF-8)
+# localisation options -> change timezone
 # finish and reboot
 
 echo deb http://debian.saltstack.com/debian jessie-saltstack main | sudo tee --append /etc/apt/sources.list
