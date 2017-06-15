@@ -48,7 +48,7 @@ sudo dd bs=4M if=`ls *.img` of=/dev/mmcblk0 # replace with your SD device (check
 mkdir -p /tmp/raspberrypi
 sudo mount -t vfat /dev/mmcblk0p1 /tmp/raspberrypi # see above for the device name
 touch /tmp/raspberrypi/ssh
-sudo umount /tmp/raspberrypi/ssh
+sudo umount /tmp/raspberrypi
 ```
 
 ## Boot your Raspberry PI
