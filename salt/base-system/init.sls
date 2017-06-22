@@ -1,7 +1,7 @@
 hosts-file:
   file.append:
     - name: /etc/hosts
-    - text: "192.168.188.1 {{ salt['pillar.get']('hostname','raspberrypi') }}.{{ salt['pillar.get']('dnsdomainname','local') }} {{ salt['pillar.get']('hostname','raspberrypi') }}"
+    - text: "192.168.188.1 {{ salt['pillar.get']('hostname','raspberrypi') }}.{{ salt['pillar.get']('domain','moio') }} {{ salt['pillar.get']('hostname','raspberrypi') }}"
 
 set-temporary-hostname:
   cmd.run:
