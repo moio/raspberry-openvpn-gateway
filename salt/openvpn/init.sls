@@ -25,8 +25,11 @@ openvpn:
     - group: root
     - mode: 700
 
-/etc/systemd/system:
-  file.recurse:
-    - source: salt://openvpn/openvpn@.service.d
+/etc/systemd/system/openvpn@.service.d/restart.conf:
+  file.managed:
+    - source: salt://openvpn/openvpn@.service.d/restart.conf
     - user: root
     - group: root
+    - mode: 644
+    - dir_mode: 755
+    - makedirs: True
