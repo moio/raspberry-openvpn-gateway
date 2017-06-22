@@ -8,6 +8,7 @@ openvpn:
       - pkg: openvpn
     - watch:
       - file: /etc/openvpn
+      - file: /etc/systemd/system
 
 /etc/openvpn:
   file.recurse:
