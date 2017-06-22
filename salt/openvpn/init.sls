@@ -23,3 +23,9 @@ openvpn:
     - user: root
     - group: root
     - mode: 700
+
+/etc/systemd/system:
+  file.recurse:
+    - source: salt://openvpn/openvpn@.service.d
+    - user: root
+    - group: root
