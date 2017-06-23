@@ -1,3 +1,2 @@
-# NOTE: rename this file to `login.settings` before calling salt highstate
 # replace this line with your username
 # replace this line with your password
