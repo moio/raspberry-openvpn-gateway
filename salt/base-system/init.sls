@@ -1,7 +1,9 @@
 hosts-file:
-  file.append:
+  file.replace:
     - name: /etc/hosts
-    - text: "192.168.188.1 {{ salt['pillar.get']('hostname','raspberrypi') }}.{{ salt['pillar.get']('domain','moio') }} {{ salt['pillar.get']('hostname','raspberrypi') }}"
+    - pattern: "127\\.0\\.1\\.1.*"
+    - repl: "127.0.1.1 {{ salt['pillar.get']('hostname','raspberrypi') }}.{{ salt['pillar.get']('domain','moio') }} {{ salt['pillar.get']('hostname','raspberrypi') }}"
+    - append_if_not_found: true
 
 set-temporary-hostname:
   cmd.run:
