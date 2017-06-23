@@ -24,8 +24,16 @@ trust Salt repo key:
     - name: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B09E40B0F2AE6AB9
     - unless: apt-key list | grep '4096R/F2AE6AB9'
 
+replace default repo with preferred:
+  file.replace:
+    - name: /etc/apt/sources.list
+    - pattern: deb http://mirrordirector.raspbian.org/raspbian/
+    - repl: deb {{ salt['pillar.get']('preferred_raspbian_mirror', 'http://raspbian.mirror.garr.it/mirrors/raspbian/raspbian/') }}
+    - unless: grep {{ salt['pillar.get']('preferred_raspbian_mirror', 'http://raspbian.mirror.garr.it/mirrors/raspbian/raspbian/') }} /etc/apt/sources.list
+
 upgrade all packages:
   pkg.uptodate:
     - refresh: True
     - require:
       - cmd: trust Salt repo key
+      - file: replace default repo with preferred
