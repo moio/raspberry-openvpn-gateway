@@ -1,1 +1,2 @@
-local_domain: moio
+hostname: raspberrypi
+domain: moio
