@@ -1,5 +1,6 @@
 include:
   - base-system.locale
+  - base-system.timezone
 
 hosts-file:
   file.replace:
