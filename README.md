@@ -43,8 +43,10 @@ Follow the [official instructions](https://www.raspberrypi.org/documentation/ins
 wget http://director.downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2017-04-10/2017-04-10-raspbian-jessie-lite.zip
 unzip *.zip
 sudo dd bs=4M if=`ls *.img` of=/dev/mmcblk0 # replace with your SD device (check journalctl)
-
+```
 # enable SSH, as it's by [disabled by default](https://www.raspberrypi.org/documentation/remote-access/ssh/)
+
+```
 mkdir -p /tmp/raspberrypi
 sudo mount -t vfat /dev/mmcblk0p1 /tmp/raspberrypi # see above for the device name
 touch /tmp/raspberrypi/ssh
