@@ -8,7 +8,7 @@ openvpn:
       - pkg: openvpn
     - watch:
       - file: /etc/openvpn
-      - file: /etc/systemd/system
+      - file: /etc/systemd/system/openvpn@.service.d/restart.conf
 
 /etc/openvpn:
   file.recurse:
