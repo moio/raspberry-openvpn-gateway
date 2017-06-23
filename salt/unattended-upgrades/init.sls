@@ -7,14 +7,18 @@ unattended-upgrades:
         'unattended-upgrades/enable_auto_updates':
           type: boolean
           value: "true"
+    - require:
+      - pkg: unattended-upgrades
 
   cmd.wait:
     - name: "dpkg-reconfigure unattended-upgrades"
-    - watch:
-      - debconf: unattended-upgrades
     - env:
         DEBIAN_FRONTEND: noninteractive
         DEBCONF_NONINTERACTIVE_SEEN: "true"
+    - require:
+      - pkg: unattended-upgrades
+    - watch:
+      - debconf: unattended-upgrades
 
 unattended-upgrades-config-source:
   file.replace:
