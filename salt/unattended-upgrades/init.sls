@@ -1,8 +1,6 @@
 unattended-upgrades:
   pkg:
     - installed
-  require:
-    - sls: postfix
 
   debconf.set:
     - data:
@@ -23,11 +21,4 @@ unattended-upgrades-config-source:
     - name: /etc/apt/apt.conf.d/50unattended-upgrades
     - pattern: "//      \"o=Raspbian,n=jessie\";"
     - repl: "         \"o=Raspbian,n=jessie\";"
-    - backup: False
-
-unattended-upgrades-config-mail:
-  file.replace:
-    - name: /etc/apt/apt.conf.d/50unattended-upgrades
-    - pattern: "//Unattended-Upgrade::Mail \"root\";"
-    - repl: "Unattended-Upgrade::Mail \"root\";"
     - backup: False
