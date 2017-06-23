@@ -74,7 +74,7 @@ up /etc/openvpn/up.sh
 
 Then replace the first two lines of `salt/openvpn/etc_openvpn/login.settings` with your credentials, if any.
 
-Finally add lines to `salt/openvpn/etc_openvpn/dnsmasq.settings` to configure any domains to be resolved by DNS servers from inside the VPN.
+Finally add lines to `salt/openvpn/etc_openvpn/dnsmasq.settings` to configure any VPN-specific dnsmasq options (eg. search domains to be resolved inside the VPN, domain names to be resolved by DNS servers from inside the VPN, etc.).
 
 ### SSH configuration
 
