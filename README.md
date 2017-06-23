@@ -44,7 +44,8 @@ wget http://director.downloads.raspberrypi.org/raspbian_lite/images/raspbian_lit
 unzip *.zip
 sudo dd bs=4M if=`ls *.img` of=/dev/mmcblk0 # replace with your SD device (check journalctl)
 ```
-# enable SSH, as it's by [disabled by default](https://www.raspberrypi.org/documentation/remote-access/ssh/)
+
+Enable SSH, as it's by [disabled by default](https://www.raspberrypi.org/documentation/remote-access/ssh/)
 
 ```
 mkdir -p /tmp/raspberrypi
@@ -131,7 +132,7 @@ Now change your network cables to the configuration above, done!
 
 SSH is configured to accept connections on port 22. Note that security settings are [tuned as per recent recommended standards](https://stribika.github.io/2015/01/04/secure-secure-shell.html), including the fact that the RSA key is regenerated with key length 4096 bits, so you will get warnings on first connection attempt.
 
-# Tweaking
+## Tweaking
 
 You can change the domain name for the Raspberry Pi subnetwork in `pillar/config.sls`.
 
