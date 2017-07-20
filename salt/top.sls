@@ -7,3 +7,4 @@ base:
     - ufw
     - openvpn
     - dnsmasq
+    - unattended-upgrades
