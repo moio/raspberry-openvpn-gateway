@@ -26,9 +26,15 @@ locale-reconfigure:
       - file: locale-gen-config
       - file: locale-gen-config-additional
       - file: locale-config
+    - onchanges:
+      - file: /etc/locale.gen
+      - file: /etc/default/locale
 
 locale-update:
   cmd.run:
     - name: update-locale LANG={{ salt['pillar.get']('locale','en_US') }}.UTF-8
-  require:
-    - cmd: locale-reconfigure
+    - require:
+      - cmd: locale-reconfigure
+    - onchanges:
+      - file: /etc/locale.gen
+      - file: /etc/default/locale
