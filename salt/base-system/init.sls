@@ -8,6 +8,7 @@ hosts-file:
 set-temporary-hostname:
   cmd.run:
     - name: hostnamectl set-hostname {{ salt['pillar.get']('hostname','raspberrypi') }}
+    - unless: "hostnamectl status | grep -o 'Static hostname: {{ salt['pillar.get']('hostname','raspberrypi') }}'"
 
 set-permanent-hostname:
   file.managed:
