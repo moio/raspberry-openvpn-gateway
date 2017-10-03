@@ -11,8 +11,7 @@ generate rsa key:
 purge moduli:
   cmd.run:
     - name: |
-        awk '$5 > 2000' /etc/ssh/moduli > /tmp/moduli
-        test -s /tmp/moduli && mv /tmp/moduli /etc/ssh/moduli
+        awk '$5 > 2000' /etc/ssh/moduli > /tmp/moduli && mv /tmp/moduli /etc/ssh/moduli
     - onlyif: awk '$5 <= 2000' /etc/ssh/moduli | grep '.'
 
 authorized_keys:
