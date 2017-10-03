@@ -1,3 +1,6 @@
+include:
+  - base-system.locale
+
 hosts-file:
   file.replace:
     - name: /etc/hosts
