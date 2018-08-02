@@ -130,6 +130,10 @@ Now change your network cables to the configuration above, done!
 
 ## Post-install access
 
+A personal user has been created as you defined in `pillar/config.sls`. Password for
+this user has been set to `changeme`. Upon the first connection, (remember to use your SSH key that you copied in `salt/sshd/authorized_keys`), you will be asked to
+change it.
+
 SSH is configured to accept connections on port 22. Note that security settings are [tuned as per recent recommended standards](https://stribika.github.io/2015/01/04/secure-secure-shell.html), including the fact that the RSA key is regenerated with key length 4096 bits, so you will get warnings on first connection attempt.
 
 ## Tweaking
